@@ -30,17 +30,27 @@ function render(variables = {}) {
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
   // reset the website body with the new html output
+
+  // ... (tu código existente)
+
+  // Actualiza la visualización del nombre con el operador ternario
+  const nameDisplay = variables.name ? variables.name : "Name";
+  const lastNameDisplay = variables.lastName ? variables.lastName : "Lastname";
+  const roleDisplay = variables.role ? variables.role : "Role";
+  const countryDisplay = variables.country ? variables.country : "Country";
+  const cityDisplay = variables.city ? variables.city : "City";
+
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${variables.name} ${variables.lastName}</h1>
-          <h2>${variables.role}</h2>
-          <h3>${variables.country}, ${variables.city}</h3>
+          <h1>${nameDisplay} ${lastNameDisplay}</h1>
+          <h2>${roleDisplay}</h2>
+          <h3>${countryDisplay}, ${cityDisplay}</h3>
           <ul class="${variables.socialMediaPosition}">
-            <li><a href="${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="${variables.github}"><i class="fab fa-github"></i></a></li>
-            <li><a href="${variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="${variables.instagram}"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://x.com/${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${variables.github}"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/${variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/${variables.instagram}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -64,11 +74,11 @@ window.onload = function() {
     github: null,
     linkedin: null,
     instagram: null,
-    name: "Name",
-    lastName: "Lastname",
-    role: "Role",
-    country: "Country",
-    city: "City"
+    name: null,
+    lastName: null,
+    role: null,
+    country: null,
+    city: null
   };
   render(window.variables); // render the card for the first time
 
