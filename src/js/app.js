@@ -39,6 +39,18 @@ function render(variables = {}) {
   const roleDisplay = variables.role ? variables.role : "Role";
   const countryDisplay = variables.country ? variables.country : "Country";
   const cityDisplay = variables.city ? variables.city : "City";
+  const twitterLink = variables.twitter
+    ? `https://x.com/${variables.twitter}`
+    : "https://x.com/";
+  const githubLink = variables.github
+    ? `https://github.com/${variables.github}`
+    : "https://github.com/";
+  const linkedinLink = variables.linkedin
+    ? `https://linkedin.com/${variables.linkedin}`
+    : "https://linkedin.com/";
+  const instagramLink = variables.instagram
+    ? `https://www.instagram.com/${variables.instagram}`
+    : "https://www.instagram.com";
 
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
@@ -47,10 +59,10 @@ function render(variables = {}) {
           <h2>${roleDisplay}</h2>
           <h3>${countryDisplay}, ${cityDisplay}</h3>
           <ul class="${variables.socialMediaPosition}">
-            <li><a href="https://x.com/${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/${variables.github}"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://www.linkedin.com/${variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://www.instagram.com/${variables.instagram}"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="${twitterLink}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="${githubLink}"><i class="fab fa-github"></i></a></li>
+            <li><a href="${linkedinLink}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${instagramLink}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
